@@ -99,3 +99,28 @@ variable "each_vm" {
     }
   ]
 }
+
+variable "storage_vm" {
+  type = object({
+    vm_name       = string
+    cores         = number
+    memory        = number
+    disk_volume   = number
+    family        = string
+    platform_id   = string
+    core_fraction = number
+    preemptible   = bool
+    nat           = bool
+  })
+  default = {
+      vm_name       = "storage"
+      cores         = 2
+      memory        = 2
+      disk_volume   = 5
+      family        = "ubuntu-2004-lts"
+      platform_id   = "standard-v1"
+      core_fraction = 5
+      preemptible   = true
+      nat           = true
+  }
+}
